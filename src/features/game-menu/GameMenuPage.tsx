@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
-import "./App.css";
-import { ConfigContext } from "./context/config-context";
-import GameMenuPage from "./features/game-menu/GameMenuPage";
+import "./GameMenuPage.scss";
+import { ConfigContext } from "../../context/config-context/ConfigContext";
+import { SpotifyButton } from "../../components/SpotifyButton";
 
-function App() {
+function GameMenuPage() {
   const [count, setCount] = useState(0);
   const [weather, setWeather] = useState("");
   const { configs, addConfig } = useContext(ConfigContext);
@@ -24,12 +24,12 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {/* nav */}
-      <GameMenuPage></GameMenuPage>
-      {/* footer */}
+    <div className="game-menu">
+      <SpotifyButton label={"Connexion"}></SpotifyButton>
+      game menu page
+        <span>{weather}</span>
     </div>
   );
 }
 
-export default App;
+export default GameMenuPage;
